@@ -3,7 +3,7 @@
         <h4>{{item.name}} </h4>
         <span class="create-date">Created : {{item.created_at | dataFilter}}</span>
         <span>Autor : <a href="{{item.owner.html_url}}">{{item.owner.login}}</a></span><br>
-        <span>Watchers {{item.watchers}}</span>
+        <span>Watchers : {{item.watchers}}</span>
         <p>{{item.description}}</p>
         <a href="{{item.html_url}}" class="git-url">{{item.html_url}}</a>
     </li>
