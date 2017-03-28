@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <title>test spa</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
     <script src="js/my.js"></script>
+    <link rel="stylesheet" href="./css/my.css">
 </head>
 <body>
-<div >
+
     <div ng-controller='firstCtrl'>
+      <ng-view></ng-view>
 
     </div>
-</div>
+
 </body>
 </html>

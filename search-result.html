@@ -1,0 +1,9 @@
+<ul>
+    <li ng-repeat="item in result">
+        <h4>{{item.name}}</h4>
+        <span>Autor : <a href="{{item.owner.html_url}}">{{item.owner.login}}</a></span><br>
+        <span>Last update : {{item.updated_at}}</span>
+        <p>{{item.description}}</p>
+        <a href="{{item.homepage}}">{{item.homepage}}</a>
+    </li>
+</ul>
