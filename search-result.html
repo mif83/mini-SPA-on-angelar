@@ -1,9 +1,10 @@
-<ul>
+<ol>
     <li ng-repeat="item in result">
-        <h4>{{item.name}}</h4>
+        <h4>{{item.name}} </h4>
+        <span class="create-date">Created : {{item.created_at | dataFilter}}</span>
         <span>Autor : <a href="{{item.owner.html_url}}">{{item.owner.login}}</a></span><br>
-        <span>Last update : {{item.updated_at}}</span>
+        <span>Watchers {{item.watchers}}</span>
         <p>{{item.description}}</p>
-        <a href="{{item.homepage}}">{{item.homepage}}</a>
+        <a href="{{item.html_url}}" class="git-url">{{item.html_url}}</a>
     </li>
-</ul>
+</ol>

@@ -7,7 +7,7 @@ var app = angular.module('app', ['ngRoute']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/',{
-            templateUrl:'search.html'
+            template:''
         })
         .when('/search/:text/page/:pagenamber', {
             templateUrl: 'search-result.html',
@@ -32,13 +32,15 @@ app.controller('firstCtrl', function($http, $scope, $location) {
          .catch(function (err) {
              console.log(err);
          })
-
  };
  $scope.pressEnter = function (event) {
      if (event.which === 13)
          $scope.startSearch($scope.search);
  }
+});
 
-
-
+app.filter('dataFilter', function () {
+    return function (str) {
+        return str.split("T")[0];
+    }
 });

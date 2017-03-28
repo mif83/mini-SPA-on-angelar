@@ -11,7 +11,11 @@
 <body>
 
     <div ng-controller='firstCtrl'>
-      <ng-view></ng-view>
+        <input type="find" ng-model="search" ng-keypress="pressEnter($event)">
+        <button ng-click="startSearch(search)">Start search</button>
+        <ng-view></ng-view>
+
+        <!--<button ng-click="startSearch(search, 2)">2</button>-->
 
     </div>
 

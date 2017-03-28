@@ -3,3 +3,25 @@
 .ng-cloak {
   display: none;
 }
+h4 {
+  margin-bottom: 5px;
+}
+ol li {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  position: relative;
+}
+ol span {
+  font-size: 11px;
+}
+p {
+  margin: 5px;
+}
+.create-date {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+.git_url {
+  font-size: 11px;
+}
