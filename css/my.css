@@ -3,15 +3,40 @@
 .ng-cloak {
   display: none;
 }
+.wrapper {
+  margin: 0 auto;
+  width: 900px;
+  text-align: center;
+  padding: 30px;
+  border: 1px solid #cccccc;
+}
+.search {
+  width: 300px;
+}
 h4 {
   margin-bottom: 5px;
 }
-ol li {
+ul {
+  list-style: none;
+  padding: 0;
+}
+.item-number {
+  position: absolute;
+  left: 0;
+  top: 33px;
+  font-size: 26px;
+  color: #020202;
+}
+.elem-wrap {
+  margin-left: 30px;
+}
+ul li {
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
+  text-align: left;
   position: relative;
 }
-ol span {
+ul span {
   font-size: 11px;
 }
 p {

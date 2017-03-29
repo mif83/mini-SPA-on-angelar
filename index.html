@@ -9,15 +9,12 @@
     <link rel="stylesheet" href="./css/my.css">
 </head>
 <body>
-
+<div class="wrapper">
     <div ng-controller='firstCtrl'>
-        <input type="find" ng-model="search" ng-keypress="pressEnter($event)">
+        <input class="search" type="find" ng-model="search" ng-keypress="pressEnter($event)" placeholder="input something">
         <button ng-click="startSearch(search)">Start search</button>
         <ng-view></ng-view>
-
-        <!--<button ng-click="startSearch(search, 2)">2</button>-->
-
     </div>
-
+</div>
 </body>
 </html>

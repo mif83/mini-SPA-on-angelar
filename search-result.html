@@ -1,10 +1,22 @@
-<ol>
-    <li ng-repeat="item in result">
-        <h4>{{item.name}} </h4>
-        <span class="create-date">Created : {{item.created_at | dataFilter}}</span>
-        <span>Autor : <a href="{{item.owner.html_url}}">{{item.owner.login}}</a></span><br>
-        <span>Watchers : {{item.watchers}}</span>
-        <p>{{item.description}}</p>
-        <a href="{{item.html_url}}" class="git-url">{{item.html_url}}</a>
+<ul>
+    <li ng-repeat="item in result | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <div class="item-number">{{$index+1 +currentPage*10}}</div>
+        <div class="elem-wrap">
+            <h4>{{item.name}} </h4>
+            <span class="create-date">Created : {{item.created_at | dataFilter}}</span>
+            <span>Autor : <a href="{{item.owner.html_url}}">{{item.owner.login}}</a></span><br>
+            <span>Watchers : {{item.watchers}}</span>
+            <p>{{item.description}}</p>
+            <a href="{{item.html_url}}" class="git-url">{{item.html_url}}</a>
+        </div>
     </li>
-</ol>
+</ul>
+<div class="pagination" ng-show="result">
+    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button ng-disabled="currentPage >= result.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+</div>
