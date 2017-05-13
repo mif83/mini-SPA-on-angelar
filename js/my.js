@@ -25,13 +25,21 @@ app.controller('firstCtrl', function($http, $scope, $location, $routeParams) {
          if(!$scope.result) return 0;
         return Math.ceil($scope.result.length/$scope.pageSize);
     };
-    $scope.startSearch = function (text,num) {
-        console.log($routeParams);
-        var num = num || "1";
-        $http.get('https://api.github.com/search/repositories?q='+text+'&per_page=99&page='+num)
+    if ($scope.result&&$routeParams.pagenamber){
+        if ($routeParams.pagenamber <=0 || $routeParams.pagenamber > $scope.pageSize){
+            $location.path("search/"+$scope.search+"/page/"+ 1);
+            return;
+        }
+            $scope.currentPage = $routeParams.pagenamber-1;
+    } else{
+        $location.path("/");
+    }
+    $scope.startSearch = function (text) {
+
+        $http.get('https://api.github.com/search/repositories?q='+text+'&per_page=99')
             .then(function (result) {
                 $scope.result = result.data.items;
-                $location.path("search/"+$scope.search+"/page/"+ num);
+                $location.path("search/"+$scope.search+"/page/"+ 1);
               })
             .catch(function (err) {
                 console.log(err);
@@ -40,7 +48,17 @@ app.controller('firstCtrl', function($http, $scope, $location, $routeParams) {
     $scope.pressEnter = function (event) {
         if (event.which === 13)
             $scope.startSearch($scope.search);
-    }
+    };
+    $scope.prev = function () {
+        $scope.currentPage--;
+        $location.path("search/"+$scope.search+"/page/"+ ($scope.currentPage+1));
+    };
+    $scope.next = function () {
+        $scope.currentPage++;
+        $location.path("search/"+$scope.search+"/page/"+ ($scope.currentPage+1));
+    };
+
+
 });
 
 app.filter('dataFilter', function () {
